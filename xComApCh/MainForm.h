@@ -77,7 +77,7 @@ namespace xComApCh {
 
 
 	TBase base[8];
-	TPersonal pers[167];
+	TPersonal pers[180];
 
 		
 	/// <summary>
@@ -383,7 +383,7 @@ namespace xComApCh {
 				};
 
 				fseek(datafile, LOC_PERS, SEEK_SET);
-				for (int i = 0; i < 167; i++) {
+				for (int i = 0; i < 180; i++) {
 					fread(&pers[i], sizeof(TPersonal), 1, datafile);
 					if (pers[i].Index > 0) { numpers++; };
 				};
@@ -417,7 +417,7 @@ namespace xComApCh {
 			savegamecash = Convert::ToInt32(numericUpDown1->Value);
 			fwrite(&savegamecash, sizeof(savegamecash), 1, datafile);
 			fseek(datafile, LOC_PERS, SEEK_SET);
-			for (int i = 0; i < 167; i++) {
+			for (int i = 0; i < 180; i++) {
 				fwrite(&pers[i], sizeof(TPersonal), 1, datafile);
 			};
 			fseek(datafile, LOC_BASE, SEEK_SET);
