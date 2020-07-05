@@ -15,7 +15,7 @@ environment:
 init:
 before_build:
 build_script:
-  - C:\MinGW\bin\gcc -m32 -mwindows xcomapch.c -o xcomapch.exe
+  - gcc -m32 -mwindows xcomapch.c -o xcomapch.exe
 after_build:
   - set XCOMAPCH_FILENAME=xComApCh-%PLATFORM%-$VERSION$.zip
   - 7z a %XCOMAPCH_FILENAME% xcomapch.exe
