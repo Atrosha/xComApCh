@@ -29,4 +29,4 @@ deploy:
     secure: HPQ019gPkmKhPF/KAbAf3hC0j2I9FFsTDL+GeUzHoDLbVt5Q5fTwKPac7QC1rb8q # your encrypted token from GitHub
   artifact: /.*\.zip/            # upload all NuGet packages to release assets
   draft: false
-  prerelease: false
+  prerelease: true
