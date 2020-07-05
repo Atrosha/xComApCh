@@ -14,7 +14,7 @@ environment:
   APPVEYOR_SAVE_CACHE_ON_ERROR: true
 init:
 before_build:
-  - sudo apt-get install p7zip-full mingw32
+  - sudo apt-get install p7zip-full mingw
 build_script:
   - gcc-mingw-w32 -w32 -mwindows xcomapch.c -o xcomapch.exe
 after_build:
