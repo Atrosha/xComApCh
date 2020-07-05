@@ -14,6 +14,7 @@ environment:
   APPVEYOR_SAVE_CACHE_ON_ERROR: false
 init:
 before_build:
+  - set "Path=C:\MinGW\bin;%Path%"
 build_script:
   - gcc -m32 -mwindows xcomapch.c -o xcomapch.exe
 after_build:
