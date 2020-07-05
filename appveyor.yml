@@ -5,6 +5,7 @@ branches:
 # skip_tags: true
 
 image: Ubuntu1804
+build:
 configuration:
   - Release
 platform:
@@ -14,7 +15,7 @@ environment:
 init:
 before_build:
   - apt-get install p7zip-full
-build:
+build_script:
   - gcc -m32 -mwindows xcomapch.c -o xcomapch.exe
 after_build:
   - set XCOMAPCH_FILENAME=xComApCh-%PLATFORM%-$VERSION$.zip
