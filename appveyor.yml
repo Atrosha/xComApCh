@@ -14,9 +14,9 @@ environment:
   APPVEYOR_SAVE_CACHE_ON_ERROR: true
 init:
 before_build:
-  - sudo apt-get install p7zip-full mingw
+  - sudo apt-get install p7zip-full gcc-mingw-w64
 build_script:
-  - gcc-mingw-w32 -w32 -mwindows xcomapch.c -o xcomapch.exe
+  - gcc-mingw-w64 -m32 -mwindows xcomapch.c -o xcomapch.exe
 after_build:
   - set XCOMAPCH_FILENAME=xComApCh-%PLATFORM%-$VERSION$.zip
   - 7z a -tzip %XCOMAPCH_FILENAME% xcomapch.exe
