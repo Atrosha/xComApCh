@@ -11,7 +11,7 @@ configuration:
 platform:
   - Win32
 environment:
-  APPVEYOR_SAVE_CACHE_ON_ERROR: true
+  APPVEYOR_SAVE_CACHE_ON_ERROR: false
 init:
 before_build:
 build_script:
