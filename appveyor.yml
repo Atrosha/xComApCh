@@ -30,5 +30,5 @@ deploy:
   artifact: /.*\.zip/            # upload all NuGet packages to release assets
   draft: false
   prerelease: false
-  on:
-    branch /release.*/
+  only:
+    branch: /release.*/
