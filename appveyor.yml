@@ -1,8 +1,4 @@
 version: 0.0.{build}
-branches:
-  only:
-  - /release.*/
-# skip_tags: true
 
 image:  Visual Studio 2013
 build:
@@ -31,4 +27,4 @@ deploy:
   draft: false
   prerelease: false
   only:
-    branch: release.*
+    branch: release/*
