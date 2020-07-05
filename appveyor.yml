@@ -18,7 +18,7 @@ before_build:
 build_script:
   - gcc -m32 -mwindows xcomapch.c -o xcomapch.exe
 after_build:
-  - set XCOMAPCH_FILENAME=xComApCh-%PLATFORM%-$(appveyor_build_version).zip
+  - set XCOMAPCH_FILENAME=xComApCh-%PLATFORM%.zip
   - 7z a -tzip %XCOMAPCH_FILENAME% xcomapch.exe
   - appveyor PushArtifact %XCOMAPCH_FILENAME%
 deploy:
