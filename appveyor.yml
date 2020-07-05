@@ -30,4 +30,3 @@ deploy:
   artifact: /.*\.zip/            # upload all NuGet packages to release assets
   draft: false
   prerelease: false
-  force_update: true
