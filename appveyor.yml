@@ -14,7 +14,7 @@ environment:
   APPVEYOR_SAVE_CACHE_ON_ERROR: true
 init:
 before_build:
-  - apt-get install p7zip-full
+  - sudo apt-get install p7zip-full
 build_script:
   - gcc -m32 -mwindows xcomapch.c -o xcomapch.exe
 after_build:
