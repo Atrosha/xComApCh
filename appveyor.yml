@@ -1,0 +1,34 @@
+version: 0.0.{build}
+branches:
+  only:
+  - /release.*/
+# skip_tags: true
+
+image: Ubuntu1804
+build:
+verbosity: detailed
+configuration:
+  - Release
+platform:
+  - Win32
+environment:
+  APPVEYOR_SAVE_CACHE_ON_ERROR: true
+init:
+before_build:
+  - apt-get install p7zip-full
+build_script:
+  - gcc -m32 -mwindows xcomapch.c -o xcomapch.exe
+after_build:
+  - set XCOMAPCH_FILENAME=xComApCh-%PLATFORM%-$VERSION$.zip
+  - 7z a -tzip %XCOMAPCH_FILENAME% xcomapch.exe
+  - appveyor PushArtifact %XCOMAPCH_FILENAME%
+deploy:
+  release: xComApCh-v$(appveyor_build_version)
+  description: 'xComApCh Release'
+  provider: GitHub
+  auth_token:
+    secure: HPQ019gPkmKhPF/KAbAf3hC0j2I9FFsTDL+GeUzHoDLbVt5Q5fTwKPac7QC1rb8q # your encrypted token from GitHub
+  artifact: %XCOMAPCH_FILENAME%            # upload all NuGet packages to release assets
+  draft: false
+  prerelease: false
+  force_update: true
